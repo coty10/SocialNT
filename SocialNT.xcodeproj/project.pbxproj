@@ -18,6 +18,7 @@
 		E137A4601EF80BF400F6E79E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A45F1EF80BF400F6E79E /* CustomView.swift */; };
 		E137A4621EF80EC600F6E79E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4611EF80EC600F6E79E /* CustomTextField.swift */; };
 		E137A4641EF8100300F6E79E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4631EF8100300F6E79E /* CustomButton.swift */; };
+		E137A4671EF8395A00F6E79E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4661EF8395A00F6E79E /* FeedVC.swift */; };
 		F9C0CA20BA256CD4E0F230C2 /* Pods_SocialNT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03D075AD4D0D6E5BBAF3735 /* Pods_SocialNT.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		E137A4611EF80EC600F6E79E /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E137A4631EF8100300F6E79E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E137A4651EF82C9900F6E79E /* SocialNT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialNT.entitlements; sourceTree = "<group>"; };
+		E137A4661EF8395A00F6E79E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E137A4451EF7DA2100F6E79E /* SignInVC.swift */,
+				E137A4661EF8395A00F6E79E /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */,
 				E137A4621EF80EC600F6E79E /* CustomTextField.swift in Sources */,
 				E137A4461EF7DA2100F6E79E /* SignInVC.swift in Sources */,
+				E137A4671EF8395A00F6E79E /* FeedVC.swift in Sources */,
 				E137A4641EF8100300F6E79E /* CustomButton.swift in Sources */,
 				E137A4441EF7DA2100F6E79E /* AppDelegate.swift in Sources */,
 				E137A45E1EF80BAF00F6E79E /* Constants.swift in Sources */,
