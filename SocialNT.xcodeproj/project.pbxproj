@@ -13,6 +13,7 @@
 		E137A44B1EF7DA2100F6E79E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E137A44A1EF7DA2100F6E79E /* Assets.xcassets */; };
 		E137A44E1EF7DA2100F6E79E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E137A44C1EF7DA2100F6E79E /* LaunchScreen.storyboard */; };
 		E137A4561EF7DA6700F6E79E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E137A4551EF7DA6700F6E79E /* GoogleService-Info.plist */; };
+		E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */; };
 		F9C0CA20BA256CD4E0F230C2 /* Pods_SocialNT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03D075AD4D0D6E5BBAF3735 /* Pods_SocialNT.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		E137A44D1EF7DA2100F6E79E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E137A44F1EF7DA2100F6E79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E137A4551EF7DA6700F6E79E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		E137A4581EF7DC4800F6E79E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */,
 				E137A4461EF7DA2100F6E79E /* SignInVC.swift in Sources */,
 				E137A4441EF7DA2100F6E79E /* AppDelegate.swift in Sources */,
 			);
