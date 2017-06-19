@@ -14,6 +14,10 @@
 		E137A44E1EF7DA2100F6E79E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E137A44C1EF7DA2100F6E79E /* LaunchScreen.storyboard */; };
 		E137A4561EF7DA6700F6E79E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E137A4551EF7DA6700F6E79E /* GoogleService-Info.plist */; };
 		E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */; };
+		E137A45E1EF80BAF00F6E79E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A45D1EF80BAF00F6E79E /* Constants.swift */; };
+		E137A4601EF80BF400F6E79E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A45F1EF80BF400F6E79E /* CustomView.swift */; };
+		E137A4621EF80EC600F6E79E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4611EF80EC600F6E79E /* CustomTextField.swift */; };
+		E137A4641EF8100300F6E79E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4631EF8100300F6E79E /* CustomButton.swift */; };
 		F9C0CA20BA256CD4E0F230C2 /* Pods_SocialNT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03D075AD4D0D6E5BBAF3735 /* Pods_SocialNT.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,10 @@
 		E137A44F1EF7DA2100F6E79E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E137A4551EF7DA6700F6E79E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDesign.swift; sourceTree = "<group>"; };
+		E137A45D1EF80BAF00F6E79E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E137A45F1EF80BF400F6E79E /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		E137A4611EF80EC600F6E79E /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		E137A4631EF8100300F6E79E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		E137A4421EF7DA2100F6E79E /* SocialNT */ = {
 			isa = PBXGroup;
 			children = (
+				E137A45C1EF80B9F00F6E79E /* Utils */,
 				E137A4571EF7DC4400F6E79E /* Model */,
 				E137A4581EF7DC4800F6E79E /* View */,
 				E137A4591EF7DC4F00F6E79E /* Controller */,
@@ -106,6 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				E137A45A1EF7FF7400F6E79E /* ButtonDesign.swift */,
+				E137A45F1EF80BF400F6E79E /* CustomView.swift */,
+				E137A4611EF80EC600F6E79E /* CustomTextField.swift */,
+				E137A4631EF8100300F6E79E /* CustomButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -116,6 +128,14 @@
 				E137A4451EF7DA2100F6E79E /* SignInVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		E137A45C1EF80B9F00F6E79E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E137A45D1EF80BAF00F6E79E /* Constants.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E137A4601EF80BF400F6E79E /* CustomView.swift in Sources */,
 				E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */,
+				E137A4621EF80EC600F6E79E /* CustomTextField.swift in Sources */,
 				E137A4461EF7DA2100F6E79E /* SignInVC.swift in Sources */,
+				E137A4641EF8100300F6E79E /* CustomButton.swift in Sources */,
 				E137A4441EF7DA2100F6E79E /* AppDelegate.swift in Sources */,
+				E137A45E1EF80BAF00F6E79E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
