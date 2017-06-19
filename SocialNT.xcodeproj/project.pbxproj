@@ -38,6 +38,7 @@
 		E137A45F1EF80BF400F6E79E /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		E137A4611EF80EC600F6E79E /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E137A4631EF8100300F6E79E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		E137A4651EF82C9900F6E79E /* SocialNT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialNT.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,7 @@
 		E137A4421EF7DA2100F6E79E /* SocialNT */ = {
 			isa = PBXGroup;
 			children = (
+				E137A4651EF82C9900F6E79E /* SocialNT.entitlements */,
 				E137A45C1EF80B9F00F6E79E /* Utils */,
 				E137A4571EF7DC4400F6E79E /* Model */,
 				E137A4581EF7DC4800F6E79E /* View */,
@@ -175,6 +177,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = KQ9R8G678H;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -395,6 +402,7 @@
 			baseConfigurationReference = 6090CBD456526EC10A59AFE0 /* Pods-SocialNT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialNT/SocialNT.entitlements;
 				DEVELOPMENT_TEAM = KQ9R8G678H;
 				INFOPLIST_FILE = SocialNT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -409,6 +417,7 @@
 			baseConfigurationReference = 1E74435E6E3CDB897F303EAE /* Pods-SocialNT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialNT/SocialNT.entitlements;
 				DEVELOPMENT_TEAM = KQ9R8G678H;
 				INFOPLIST_FILE = SocialNT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
