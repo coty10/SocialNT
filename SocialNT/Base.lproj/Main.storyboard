@@ -123,13 +123,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LsC-zs-da5" customClass="CustomTextField" customModule="SocialNT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="288" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr9-Zr-RKy" customClass="CustomButton" customModule="SocialNT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="288" height="35"/>
@@ -144,6 +144,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="buttonDesign" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VsH-zS-W9E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -170,6 +173,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="unf-Z1-ven" secondAttribute="trailing" id="zFz-53-Te5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="LFr-SM-rMc" id="47E-Ob-v7s"/>
+                        <outlet property="passwordField" destination="LsC-zs-da5" id="bR5-ys-Qx8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
