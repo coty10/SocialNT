@@ -21,6 +21,7 @@
 		E137A4671EF8395A00F6E79E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137A4661EF8395A00F6E79E /* FeedVC.swift */; };
 		E19618911EF92CC700886362 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19618901EF92CC700886362 /* CircleImageView.swift */; };
 		E19618931EF9488600886362 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19618921EF9488600886362 /* PostCell.swift */; };
+		E19618961EF95FD400886362 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19618951EF95FD400886362 /* DataService.swift */; };
 		F9C0CA20BA256CD4E0F230C2 /* Pods_SocialNT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03D075AD4D0D6E5BBAF3735 /* Pods_SocialNT.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		E137A4661EF8395A00F6E79E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		E19618901EF92CC700886362 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		E19618921EF9488600886362 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		E19618951EF95FD400886362 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E137A4651EF82C9900F6E79E /* SocialNT.entitlements */,
+				E19618941EF95FB300886362 /* Services */,
 				E137A45C1EF80B9F00F6E79E /* Utils */,
 				E137A4571EF7DC4400F6E79E /* Model */,
 				E137A4581EF7DC4800F6E79E /* View */,
@@ -147,6 +150,14 @@
 				E137A45D1EF80BAF00F6E79E /* Constants.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		E19618941EF95FB300886362 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E19618951EF95FD400886362 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				E137A45B1EF7FF7400F6E79E /* ButtonDesign.swift in Sources */,
 				E137A4621EF80EC600F6E79E /* CustomTextField.swift in Sources */,
 				E137A4461EF7DA2100F6E79E /* SignInVC.swift in Sources */,
+				E19618961EF95FD400886362 /* DataService.swift in Sources */,
 				E137A4671EF8395A00F6E79E /* FeedVC.swift in Sources */,
 				E137A4641EF8100300F6E79E /* CustomButton.swift in Sources */,
 				E137A4441EF7DA2100F6E79E /* AppDelegate.swift in Sources */,

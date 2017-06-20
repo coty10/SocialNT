@@ -56,7 +56,8 @@ class SignInVC: UIViewController {
             }else {
              print("Coty10: Successufully logged in with Firebase")
                 if let user = user {
-                    self.completeSignIn(id: user.uid)
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: user.uid, userData: userData)
                 }
             }
         }
@@ -70,7 +71,8 @@ class SignInVC: UIViewController {
                 if error == nil {
                     print("Coty10: Email Successfully signed in with Firebase")
                     if let user = user {
-                     self.completeSignIn(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                     self.completeSignIn(id: user.uid, userData: userData)
                     }
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -80,7 +82,8 @@ class SignInVC: UIViewController {
                         } else {
                             print("Coty10: User registered and signed in with Firebase")
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
                             }
                         }
                     })
@@ -89,7 +92,8 @@ class SignInVC: UIViewController {
         }
     } // end of signedInPressed
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: KEY_UID)
         performSegue(withIdentifier: "goToFeed", sender: nil)
     }
