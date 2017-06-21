@@ -42,6 +42,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                         let key = snap.key
                         let post = Post(postId: key, postData: postDict)
                         self.posts.append(post)
+                        self.posts = self.posts.reversed()
                     }
                 }
             }
@@ -144,7 +145,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     //Logging out
     @IBAction func logOutPressed(_ sender: Any) {
-        
         KeychainWrapper.standard.removeObject(forKey: KEY_UID)
        try! Auth.auth().signOut()
         dismiss(animated: true, completion: nil)
