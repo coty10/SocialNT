@@ -17,6 +17,7 @@ class Post {
     private var _postId: String!
     private var _likes: Int!
     
+    
     var caption: String {
         return _caption
     }
