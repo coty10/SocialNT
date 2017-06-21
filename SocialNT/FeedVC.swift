@@ -33,13 +33,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+          
+            self.posts = [] // This is the new line
+            
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                
                 for snap in snapshot {
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let post = Post(postId: key, postData: postDict)
-                        self.posts.append(post)                    }
+                        self.posts.append(post)
+                    }
                 }
             }
             self.tableView.reloadData()
@@ -62,17 +65,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             if let img = FeedVC.imgCache.object(forKey: post.imgUrl as NSString) {
                 
                 cell.configureCell(post: post, img: img)
-                
             } else {
-                
                 cell.configureCell(post: post)
-                return cell
             }
-            
+             return cell
         } else {
             return PostCell()
         }
-        return PostCell()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -82,7 +81,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         } else {
             print("Coty10: Please select a valid image")
         }
-        dismiss(animated: true, completion: nil)
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     //Selecting the image
@@ -113,11 +112,33 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 if error != nil {
                     print("Coty10: Unable to upload to Firebase Storage")
                 } else {
-                    let donwloadUrl = metaData.downloadURL()?.absoluteURL
+                    let downloadUrl = metadata?.downloadURL()?.absoluteString
+                    if let url = downloadUrl {
+                        self.addPostToFirebase(imgUrl: url)
+                    }
                 }
             })
         }
         
+    }
+    
+    func addPostToFirebase(imgUrl: String) {
+        
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionField.text as AnyObject,
+            "imgUrl": imgUrl as AnyObject,
+            "likes": 0 as AnyObject
+            ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        //Restoring the fields
+        captionField.text = ""
+        imgSelected = false
+        imageAdded.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
     }
     
     
