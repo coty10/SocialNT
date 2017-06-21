@@ -14,11 +14,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdded: CircleImageView!
+    @IBOutlet weak var captionField: CustomTextField!
     
     var imagePicker: UIImagePickerController!
     
     var posts = [Post]()
     static var imgCache: NSCache<NSString, UIImage> = NSCache()
+    var imgSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,15 +78,50 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageAdded.image = image
+            imgSelected = true
         } else {
             print("Coty10: Please select a valid image")
         }
         dismiss(animated: true, completion: nil)
     }
     
+    //Selecting the image
     @IBAction func addImagePressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    //Adding the post
+    @IBAction func addPostPressed(_ sender: Any) {
+        
+        guard let caption = captionField.text, caption != "" else {
+            print("Coty10: Please insert a Caption")
+            return
+        }
+        guard let img = imageAdded.image, imgSelected == true else {
+            print("Coty10: Please select a valid Image")
+            return
+        }
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imageID = NSUUID().uuidString
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            DataService.ds.REF_STORAGE_PICS.child(imageID).putData(imgData, metadata: metaData, completion: { (metadata, error) in
+                
+                if error != nil {
+                    print("Coty10: Unable to upload to Firebase Storage")
+                } else {
+                    let donwloadUrl = metaData.downloadURL()?.absoluteURL
+                }
+            })
+        }
+        
+    }
+    
+    
+    //Logging out
     @IBAction func logOutPressed(_ sender: Any) {
         
         KeychainWrapper.standard.removeObject(forKey: KEY_UID)
