@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class PostCell: UITableViewCell {
 
@@ -20,6 +21,7 @@ class PostCell: UITableViewCell {
 
     var post: Post!
     var likesRef: DatabaseReference!
+    var currentUser: DatabaseReference!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +36,25 @@ class PostCell: UITableViewCell {
     func configureCell(post: Post, img: UIImage? = nil) {
         self.post = post
         likesRef = DataService.ds.REF_CURRENT_USER.child("likes").child(post.postId)
+//        currentUser = DataService.ds.REF_CURRENT_USER
         self.captionText.text = post.caption
         self.numberOfLikes.text = "\(post.likes)"
-        
+        self.userNameLbl.text = post.username
+        if post.profileImg == "" {
+            
+            self.profileImg.image = UIImage(named: "profile_icon")
+        } else {
+        let url = URL(string: post.profileImg)
+//        let downloader = SDWebImageDownloader.shared()
+//        downloader.downloadImage(with: url, options: [], progress: nil, completed: { (image, data, error, finished) in
+//            DispatchQueue.main.async(execute: {
+//                self.profileImg.image = image
+//            })
+//        })
+            let data = try? Data(contentsOf: url!)
+            profileImg.image = UIImage(data: data!)
+            FeedVC.imgCache.setObject(profileImg.image!, forKey: post.profileImg as NSString)
+    }
         if img != nil {
             self.postImg.image = img
         } else {

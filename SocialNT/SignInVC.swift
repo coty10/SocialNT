@@ -56,7 +56,9 @@ class SignInVC: UIViewController {
             }else {
              print("Coty10: Successufully logged in with Firebase")
                 if let user = user {
-                    let userData = ["provider": credential.provider]
+                    let defaultUsername = "Anonymous"
+                    let profilePicUrl = "https://firebasestorage.googleapis.com/v0/b/socialnt-eda70.appspot.com/o/ProfileImage%2FdefaultImage%2Fprofile_icon.jpg?alt=media&token=f29aef26-1051-47e6-bb6d-55635808d8c1"
+                    let userData = ["provider": credential.provider, "username": defaultUsername, "profilePicUrl": profilePicUrl]
                     self.completeSignIn(id: user.uid, userData: userData)
                 }
             }
@@ -82,7 +84,9 @@ class SignInVC: UIViewController {
                         } else {
                             print("Coty10: User registered and signed in with Firebase")
                             if let user = user {
-                                let userData = ["provider": user.providerID]
+                                let defaultUsername = "Anonymous"
+                                let profilePicUrl = "https://firebasestorage.googleapis.com/v0/b/socialnt-eda70.appspot.com/o/ProfileImage%2FdefaultImage%2Fprofile_icon.jpg?alt=media&token=f29aef26-1051-47e6-bb6d-55635808d8c1"
+                                let userData = ["provider": user.providerID, "username": defaultUsername, "profilePicUrl": profilePicUrl]
                                 self.completeSignIn(id: user.uid, userData: userData)
                             }
                         }

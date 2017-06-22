@@ -16,6 +16,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var imageAdded: CircleImageView!
     @IBOutlet weak var captionField: CustomTextField!
     
+    var currentUser: DatabaseReference!
+    
     var imagePicker: UIImagePickerController!
     
     var posts = [Post]()
@@ -32,7 +34,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+        DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
           
             self.posts = [] // This is the new line
             
@@ -42,7 +44,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                         let key = snap.key
                         let post = Post(postId: key, postData: postDict)
                         self.posts.append(post)
-                        self.posts = self.posts.reversed()
+                        self.posts.sort(by: {$0.date > $1.date})
+                        
                     }
                 }
             }
@@ -102,6 +105,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             return
         }
         
+        
         if let imgData = UIImageJPEGRepresentation(img, 0.2) {
             
             let imageID = NSUUID().uuidString
@@ -124,29 +128,46 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     func addPostToFirebase(imgUrl: String) {
-        
-        let post: Dictionary<String, AnyObject> = [
-            "caption": captionField.text as AnyObject,
-            "imgUrl": imgUrl as AnyObject,
-            "likes": 0 as AnyObject
-            ]
+        currentUser = DataService.ds.REF_CURRENT_USER
+        currentUser.observe(.value, with: { (snapshot) in
+            
+            if let dict = snapshot.value as? [String: AnyObject] {
+                let username = dict["username"] as! String
+                let profileImageUrl = dict["profilePicUrl"] as! String
+                
+                
+                let unixTimestamp = Date().timeIntervalSince1970
+                let date = Date(timeIntervalSince1970: unixTimestamp)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss" //Specify your format that you want
+                let strDate = dateFormatter.string(from: date)
+                let post: Dictionary<String, AnyObject> = [
+                    "caption": self.captionField.text as AnyObject,
+                    "imgUrl": imgUrl as AnyObject,
+                    "likes": 0 as AnyObject,
+                    "date": strDate as AnyObject,
+                    "postedBy": username as AnyObject,
+                    "postedByProfileImg": profileImageUrl as AnyObject
+                ]
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(post)
         
         //Restoring the fields
-        captionField.text = ""
-        imgSelected = false
-        imageAdded.image = UIImage(named: "add-image")
+        self.captionField.text = ""
+        self.imgSelected = false
+        self.imageAdded.image = UIImage(named: "add-image")
         
-        tableView.reloadData()
+        self.tableView.reloadData()
+            }
+        })
     }
     
     
     //Logging out
     @IBAction func logOutPressed(_ sender: Any) {
         KeychainWrapper.standard.removeObject(forKey: KEY_UID)
-       try! Auth.auth().signOut()
+        try! Auth.auth().signOut()
         dismiss(animated: true, completion: nil)
     }
     

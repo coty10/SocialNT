@@ -12,5 +12,6 @@ target 'SocialNT' do
   pod 'Firebase/Storage'
   pod 'FBSDKLoginKit'
   pod 'SwiftKeychainWrapper'
+  pod 'SDWebImage'
 
 end
